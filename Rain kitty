@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>數量增減示例</title>
+    <style>
+        .counter {
+            display: flex;
+            align-items: center;
+        }
+        .link {
+            margin: 0 10px;
+            font-size: 20px;
+            text-decoration: none;
+            color: blue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="counter">
+        <a href="#" class="link" id="minus">-</a>
+        <span id="quantity">0</span>
+        <a href="#" class="link" id="plus">+</a>
+    </div>
+
+    <script>
+        const quantityElement = document.getElementById('quantity');
+        let quantity = 0;
+
+        document.getElementById('plus').addEventListener('click', (event) => {
+            event.preventDefault(); // 阻止默認行為
+            quantity++;
+            quantityElement.textContent = quantity;
+        });
+
+        document.getElementById('minus').addEventListener('click', (event) => {
+            event.preventDefault(); // 阻止默認行為
+            if (quantity > 0) {
+                quantity--;
+                quantityElement.textContent = quantity;
+            }
+        });
+    </script>
+</body>
+</html>
